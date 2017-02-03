@@ -32,11 +32,11 @@ class Project extends Model implements Transformable
 
     public function cliente()
     {
-    	return $this->belongsTo(Clientes::class);
+    	return $this->belongsTo(Clientes::class, 'clientes_id');
     }
 
     public function user()
     {
-    	return $this->belongsTo(User::class);
+    	return $this->belongsTo(User::class, 'owner_id');
     }
 }
