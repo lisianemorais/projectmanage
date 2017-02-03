@@ -43,7 +43,7 @@ class User extends Model implements AuthenticatableContract,
 
     public function project()
     {
-        return $this->hasMany(Project::class);
+        return $this->hasMany(Project::class, 'owner_id');
     }
 
 }
