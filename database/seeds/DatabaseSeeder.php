@@ -20,14 +20,26 @@ class DatabaseSeeder extends Seeder
          $this->call(ClientTableSeeder::class);
          $this->call(ProjectTableSeeder::class);
          $this->call(NotasProjectTableSeeder::class);
-
-         factory(\projectmanager\Entities\User::class)->create([
-            'name' => 'Lisiane',
-            'email' => 'lisi.rmorais@gmail.com',
+       
+       factory(\projectmanager\Entities\User::class)->create([
+            'name' => 'Usuario Teste',
+            'email' => 'user@projectmanager.com',
             'password' => bcrypt(123456),
-            'remember_token' => str_random(10),
-        ]);
+       ]);
 
+
+        factory(\projectmanager\Entities\StatusProject::class)->create([
+            'descricao' => 'A Iniciar',
+        ]);
+//
+       factory(\projectmanager\Entities\StatusProject::class)->create([
+           'descricao' => 'Em andamento',
+       ]);
+//
+        factory(\projectmanager\Entities\StatusProject::class)->create([
+            'descricao' => 'Concluído',
+        ]);
+//
         Model::reguard();
     }
 }

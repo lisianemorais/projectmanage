@@ -1,0 +1,123 @@
+/*Helpers*/
+.oculta{font-size: 0px; margin: 0px;}
+.btn-padrao{background: #E0E0E0 !important;color: #666565 !important;padding: 8px 36px;font-size: 18px;border: none;width: 100%;font-weight: bold;}
+.divider{border: 1px solid #A9A9A9;}
+.clear{clear: both;}
+.btn-cadastrar{background-color: #3E5460;color: #FFF;padding: 10px 18px;font-size: 18px;}
+
+
+/*Paddings*/
+.padding-20{padding: 20px;}
+.padding-10{padding: 10px;}
+.padding-5{padding: 5px;}
+
+/*Paddings*/
+.padding-20{padding: 20px 0px}
+.padding-30{padding: 30px 0px}
+.padding-40{padding: 40px 0px}
+.padding-50{padding: 50px 0px}
+.padding-60{padding: 60px 0px}
+.padding-70{padding: 70px 0px}
+.padding-80{padding: 80px 0px}
+
+
+/*Resets*/
+.form-padrao{}
+.form-padrao input[type="text"],input[type="password"]{border-radius: 0px;height: 44px;border: 1px solid #D5F4FF;color: #2D3032;font-size: 16px;}
+.form-padrao input[type="submit"]{}
+a:hover{text-decoration: none;color: #F39020 !important;}
+
+
+/*Fontes*/
+
+
+/*Cores*/
+
+
+/*Backgrounds*/
+.bg-padrao{background-color: #E0E0E0;}
+.bg-padrao2{background-color: #2D3032; color: #FFF;}
+.bg-padrao3{background-color: #F7921E; color: #FFF;}
+.bg-padrao4{background-color: #3E5460; color: #FFF;}
+.bg-padrao5{background-color: #C53430; color: #FFF;}
+
+
+
+/*
+Formulario Login
+*/
+.login{margin: 150px auto;max-width: 550px;text-align: center;background-color: #FFF;}
+.conteudo-login{padding: 34px 8px 12px 8px;}
+.topo-login{background-color: #3E5460;color: #FFF;padding: 5px;}
+.titulo-login{font-size: 24px;}
+.recuperar-senha{float: right;color: #3E5460;}
+
+
+
+/**********************************************************
+Painel
+**********************************************************/
+
+/*Topo Painel*/
+.topo-painel{background-color: #FFF;padding: 10px 6px;float: left;width: 100%;}
+.logo-painel{max-width: 150px;}
+.acoes-painel{float: right;border: 1px solid #2D3032;padding: 8px;color: #2D3032;}
+.icon-acoes-painel{margin: 8px;float: left;}
+
+
+/*Menu*/
+.menu-painel{background-color: #3E5460;padding: 0px;min-height: 805px;}
+.menu-painel-ul{list-style: none;margin: 0px;padding: 9px;}
+.menu-painel-ul li{margin: 22px 0px;}
+.menu-painel-ul li a{color: #FFF;font-size: 18px;}
+
+
+/*conteudo*/
+.conteudo{padding: 5px;}
+.cont{background-color: #FFF;padding: 5px;border-radius: 4px;min-height: 800px;}
+.titulo-pg-painel{font-size: 24px;color: #6B6B6B;}
+.conteudo-listagens2{border: 2px solid #FFF;font-weight: bold;padding: 15px 28px;border-radius: 5px;display: inline-flex;}
+.conteudo-listagens3{background-color: #FFF;
+    padding: 14px 40px;white-space: normal;
+    color: #696969;font-weight: bold;
+    border-radius: 4px;font-size: 16px;
+    min-height: 300px !important;}
+.conteudo-listagens{}
+div.relatorio{font-size: 34px;text-align: center;color: #1C8CCA;padding: 25px 0px;}
+.icone-relario{padding: 20px; border-radius: 5px;}
+p.relatorio{font-size: 18px;}
+.edit{background-color: #3E5460;color: #FFF;padding: 6px 4px;border-radius: 5px;margin: 2px;}
+.delete{background-color: #3E5460;color: #FFF;padding: 6px 4px;border-radius: 5px;}
+
+.pagination > .active > a, 
+.pagination > .active > a:focus, 
+.pagination > .active > a:hover, 
+.pagination > .active > span, 
+.pagination > .active > span:focus, 
+.pagination > .active > span:hover {
+    z-index: 3;
+    color: #fff;
+    cursor: default;
+    background-color: #3e5460 !important;
+    border-color: #3e5460;
+}
+
+.pagination > li > a, 
+.pagination > li > span {
+    position: relative;
+    float: left;
+    padding: 6px 12px;
+    margin-left: -1px;
+    line-height: 1.42857143;
+    color: #3e5460;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+.btn-primary {
+	background-image:linear-gradient(to bottom,#315889 0,#3e5460 100%);
+}
+
+/**********************************************************
+End Painel
+**********************************************************/

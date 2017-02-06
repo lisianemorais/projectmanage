@@ -2,7 +2,7 @@
 
 namespace projectmanager\Http\Controllers\Auth;
 
-use projectmanager\User;
+use projectmanager\Entities\User;
 use Validator;
 use projectmanager\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
@@ -10,6 +10,10 @@ use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 
 class AuthController extends Controller
 {
+    protected $redirectPath = '/';
+    
+    protected $loginPath = '/auth/login';
+
     /*
     |--------------------------------------------------------------------------
     | Registration & Login Controller

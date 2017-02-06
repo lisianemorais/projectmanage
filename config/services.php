@@ -30,7 +30,7 @@ return [
     ],
 
     'stripe' => [
-        'model'  => projectmanager\User::class,
+        'model'  => projectmanager\Entities\User::class,
         'key'    => env('STRIPE_KEY'),
         'secret' => env('STRIPE_SECRET'),
     ],

@@ -11,7 +11,10 @@ class ProjectTableSeeder extends Seeder
      */
     public function run()
     {
-        //\projectmanager\Entities\Project::truncate();
+        DB::statement('SET FOREIGN_KEY_CHECKS=0;');
+        \projectmanager\Entities\Project::truncate(); //apaga a tabela
+        DB::statement('SET FOREIGN_KEY_CHECKS=1;');
         factory(\projectmanager\Entities\Project::class, 10)->create();
     }
 }
+

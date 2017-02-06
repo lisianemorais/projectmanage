@@ -53,3 +53,11 @@ $factory->define(projectmanager\Entities\NotasProject::class, function (Faker\Ge
         'nota' => $faker->paragraph,
     ];
 });
+
+
+$factory->define(projectmanager\Entities\StatusProject::class, function (Faker\Generator $faker) {
+    return [
+        'descricao' => $faker->word,
+    ];
+});
+

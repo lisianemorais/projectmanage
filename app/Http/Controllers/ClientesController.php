@@ -28,7 +28,8 @@ class ClientesController extends Controller
 
     public function index()
     {
-        return $this->repository->all();
+        $clientes = $this->repository->paginate($limit = 5, $columns = ['*']); 
+        return view('clientes.index', compact('clientes'));
     }
 
 
@@ -40,7 +41,8 @@ class ClientesController extends Controller
      */
     public function store( Request $request)
     {   
-        return $this->service->create($request->all());
+        $this->service->create($request->all());
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -50,8 +52,9 @@ class ClientesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return $this->repository->find($id);
+    {   
+        $cliente = $this->repository->find($id);
+        return view('clientes.editar', compact('cliente'));
     }
 
     
@@ -64,8 +67,9 @@ class ClientesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        return $this->service->find($id)->update($request->all());
+    {   
+        $this->repository->find($id)->update($request->all());
+        return redirect()->route('clientes.index');
     }
 
     /**
@@ -75,7 +79,8 @@ class ClientesController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        return $this->repository->find($id)->delete();
+    {   
+        $this->repository->find($id)->delete();
+        return redirect()->route('clientes.index');
     }
 }

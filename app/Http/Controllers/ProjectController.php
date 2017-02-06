@@ -4,7 +4,11 @@ namespace projectmanager\Http\Controllers;
 
 use Illuminate\Http\Request;
 use projectmanager\Repositories\ProjectRepository;
-use projectmanager\Services\ProjectService;
+//use projectmanager\Services\ProjectService;
+use projectmanager\Entities\Project;
+use projectmanager\Entities\Clientes;
+use projectmanager\Entities\StatusProject;
+use Illuminate\Support\Facades\Auth;
 
 class ProjectController extends Controller
 {
@@ -19,16 +23,30 @@ class ProjectController extends Controller
      */
     private $service;
 
+    /**
+     * @var Project
+     */
+    private $project;
 
-    public function __construct( ProjectRepository $repository, ProjectService $service)
+    public function __construct(Project $project, ProjectRepository $repository)
     {
         $this->repository = $repository;
-        $this->service = $service;
+        $this->project = $project;
     }
 
     public function index()
-    {
-        return $this->repository->all();
+    {   
+        $projetos = $this->project->paginate(5);
+        $clientes = Clientes::lists('name', 'id');
+        $status = StatusProject::lists('descricao', 'id');
+        $user = Auth::user();
+        return view('projetos.index', compact('projetos','status','clientes','user'));
+    }
+
+    public function home()
+    {   
+        $projetos = $this->project->paginate(5);
+        return view('home.index', compact('projetos'));
     }
 
 
@@ -40,7 +58,8 @@ class ProjectController extends Controller
      */
     public function store( Request $request)
     {   
-        return $this->service->create($request->all());
+        $this->project->create($request->all());
+        return redirect()->route('projetos.index');
     }
 
     /**
@@ -50,8 +69,12 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id)
-    {
-        return $this->repository->find($id);
+    {   
+        $projeto = $this->project->find($id);
+        $clientes =  Clientes::lists('name', 'id');
+        $status = StatusProject::lists('descricao', 'id');
+        $user = Auth::user();
+        return view('projetos.editar', compact('projeto','status','clientes','user'));
     }
 
     
@@ -64,8 +87,9 @@ class ProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
-    {
-        return $this->service->find($id)->update($request->all());
+    {   
+        $this->project->find($id)->update($request->all());
+        return redirect()->route('projetos.index');
     }
 
     /**
@@ -76,6 +100,7 @@ class ProjectController extends Controller
      */
     public function destroy($id)
     {
-        return $this->repository->find($id)->delete();
+        $this->project->find($id)->delete();
+        return redirect()->route('projetos.index');
     }
 }

@@ -27,8 +27,10 @@ class NotasProjectController extends Controller
     }
 
     public function index($id)
-    {
-        return $this->repository->findWhere(['project_id'=> $id]);;
+    {   
+
+        $notas = $this->repository->findWhere(['project_id'=> $id]);
+        return view('NotasProject.index', compact('notas')) ;
     }
 
 
@@ -40,7 +42,14 @@ class NotasProjectController extends Controller
      */
     public function store( Request $request)
     {   
-        return $this->service->create($request->all());
+        dd($request);
+        $this->service->create($request->all());
+        return redirect()->route('notas.index');
+    }
+
+    public function create( $id, Request $request)
+    {   
+        return view('notas.create', 'id');
     }
 
     /**
@@ -50,7 +59,7 @@ class NotasProjectController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function show($id, $notaId)
-    {
+    {   
         return $this->repository->findwhere(['project_id'=>$id, 'id'=>$notaId]);
     }
 
